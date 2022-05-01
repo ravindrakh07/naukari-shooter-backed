@@ -58,13 +58,17 @@ export class Server {
   }
 
   setRoutes() {
-    this.app.use(express.static(path.join(__dirname, 'public')));
+    // this.app.use(express.static(path.join(__dirname, 'public')));
     this.app.use((req: any, res, next) => {
       req.startTime = new Date().getTime();
       console.log(`Api ==> ${req.url}  ${req.method}`);
       console.log('request-body', req.body);
       next();
     });
+    this.app.use('/api-doc', (req,res, next) => {
+      res.sendFile(path.resolve(process.cwd()+'/assets/Apidoc/index.html'));
+    });
+
     this.app.use('/api', Routes)
   }
 
