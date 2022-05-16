@@ -2,7 +2,9 @@ import { Environment } from "./Env";
 
 export const DevEnvironment: Environment = {
   port: Number(process.env.PORT),
-  dbUrl: process.env.DB_URL_DEV,
+  dbUrl: `mongodb+srv://ravindra:ravindra11@cluster0.kgffd.mongodb.net/naukarishooter?retryWrites=true&
+  w=majority
+  `,
   jwtSecret: process.env.JWT_SECRET,
   jwtExpiresIn: process.env.JWT_EXPIRES_IN,
 

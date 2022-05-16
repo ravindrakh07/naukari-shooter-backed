@@ -1,5 +1,6 @@
 import { Router } from "express";
 import AuthRoutes from "./Admin/AuthRoutes";
+import AuthRouter from "./App/AuthRouter";
 
 class Routes {
   public router: Router;
@@ -10,7 +11,7 @@ class Routes {
   }
 
   app() {
-    
+    this.router.use('/app/auth', AuthRouter)
   }
 
   admin() {

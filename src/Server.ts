@@ -29,6 +29,7 @@ export class Server {
 
 
   setMongodb() {
+    console.log('dbUrl', env().dbUrl)
     mongoose.connect(env().dbUrl, {
     }).then(() => {
       console.log("Database connected");
@@ -65,8 +66,8 @@ export class Server {
       console.log('request-body', req.body);
       next();
     });
-    this.app.use('/api-doc', (req,res, next) => {
-      res.sendFile(path.resolve(process.cwd()+'/assets/Apidoc/index.html'));
+    this.app.use('/api-doc', (req, res, next) => {
+      res.sendFile(path.resolve(process.cwd() + '/assets/Apidoc/index.html'));
     });
 
     this.app.use('/api', Routes)
